@@ -22,12 +22,14 @@ except Exception as e:
     logger.error(f'Error fetching bot info: {str(e)}')
     
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////#
-
+btn1 = telebot.types.InlineKeyboardButton('𝑴𝒊𝑹𝑨𝑳𝒊 𝑽𝒊𝑩𝑬', url='https://t.me/mirali_vibe')
+markup = telebot.types.InlineKeyboardMarkup(row_width=3)
+markup.add(btn1)
 @bot.message_handler(commands=['start'])
 def start(message):
     try:
         welcome_message = 'سلام! به ربات ما خوش آمدید!'
-        bot.send_message(message.chat.id, welcome_message)
+        bot.send_message(message.chat.id, welcome_message, reply_markup=markup)
         
         user_id = message.from_user.id
         username = message.from_user.username or "Not Have"
