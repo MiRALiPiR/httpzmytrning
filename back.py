@@ -48,17 +48,29 @@ def order(call):
         reply_markup=markup
     )
 
+# @bot.callback_query_handler(func=lambda call: call.data == 'continue')
+# def continue(call):
+#     continue_button = telebot.types.InlineKeyboardButton('')
+#     bot.edit_message_text(
+#         chat_id=call.message.chat.id,
+#         message_id=call.message.message_id,
+#         text='''درود بر شما 🌹
+# به ربات ثبت سفارشات میرعلی شاپ خوش اومدید 💎
+
+# <blockquote>🔰 آیدی کانال: @MiRALi_Shop_OG </blockquote>
+# <blockquote>🆔 آیدی مالک مجموعه: @MiRALi_OFFiCiAL </blockquote>
+
+# <strong>▼برای ثبت سفارش روی دکمه زیر کلیک کنید▼</strong>''',
+#         parse_mode='HTML',
+#         reply_markup=markup
+#     )
+
 @bot.callback_query_handler(func=lambda call: call.data == 'back_to_start')
 def back_to_start(call):
     # حذف پیام قبلی
-    bot.delete_message(
+    bot.edit_message_text(
         chat_id=call.message.chat.id,
-        message_id=call.message.message_id
-    )
-    
-    # ارسال پیام جدید
-    bot.send_message(
-        chat_id=call.message.chat.id,
+        message_id=call.message.message_id,
         text='''درود بر شما 🌹
 به ربات ثبت سفارشات میرعلی شاپ خوش اومدید 💎
 
@@ -81,7 +93,7 @@ def start(message):
 <blockquote>🔰 کانال : @MiRALi_Shop_OG </blockquote>
 <blockquote>🆔کانال اعتماد : @TrusT_MiRALi </blockquote>
 
-<strong>▼توجه: برای ثبت سفارش روی دکمه زیر کلیک کنید ▼</strong>''',
+<strong>▼برای ثبت سفارش روی دکمه زیر کلیک کنید▼</strong>''',
         parse_mode='HTML',
         reply_markup=markup
     )
