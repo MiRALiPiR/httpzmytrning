@@ -5,7 +5,7 @@ import logging
 from telethon.tl.custom import Button
 from telethon.errors import RPCError
 import json
-import ti
+import time
 
 load_dotenv()
 TOKEN = os.getenv('token')
